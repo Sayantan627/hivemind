@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
+import { getAuthSession } from "@/lib/auth";
 
-const Navbar = () => {
+const Navbar = async () => {
+  const session = await getAuthSession();
   return (
     <div className="fixed top-0 inset-x-0 h-fit bg-zinc-100 border-b border-zinc-300 py-2 z-[10]">
       <div className="container h-full max-w-7xl flex mx-auto justify-between items-center gap-2">
@@ -13,9 +15,13 @@ const Navbar = () => {
 
         {/* Search bar */}
 
-        <Link href="/sign-in" className={buttonVariants()}>
-          Sign In
-        </Link>
+        {session ? (
+          <p>You are logged in</p>
+        ) : (
+          <Link href="/sign-in" className={buttonVariants()}>
+            Sign In
+          </Link>
+        )}
       </div>
     </div>
   );
