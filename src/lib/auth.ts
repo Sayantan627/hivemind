@@ -10,7 +10,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   pages: {
-    signIn: "sign-in",
+    signIn: "/sign-in",
   },
   providers: [
     GoogleProvider({
@@ -25,7 +25,7 @@ export const authOptions: NextAuthOptions = {
         session.user.name = token.name;
         session.user.email = token.email;
         session.user.image = token.picture;
-        session.user.username = token.id;
+        session.user.username = token.username;
       }
 
       return session;
