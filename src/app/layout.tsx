@@ -4,6 +4,7 @@ import "../styles/globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "@/components/ui/toaster";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,17 +24,19 @@ export default function RootLayout({
     <html
       lang="en"
       className={cn(
-        "bg-white text-slate-900 antialiased light",
-        inter.className
+        "light bg-white text-slate-900 antialiased",
+        inter.className,
       )}
     >
-      <body className="min-h-screen pt-12 bg-slate-50 antialiased">
-        <Navbar />
-        {authModal}
-        <div className="pt-12 container max-w-7xl mx-auto h-full">
-          {children}
-        </div>
-        <Toaster />
+      <body className="min-h-screen bg-slate-50 pt-12 antialiased">
+        <Providers>
+          <Navbar />
+          {authModal}
+          <div className="container mx-auto h-full max-w-7xl pt-12">
+            {children}
+          </div>
+          <Toaster />
+        </Providers>
       </body>
     </html>
   );
