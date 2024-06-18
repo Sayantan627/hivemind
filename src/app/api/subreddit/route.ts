@@ -9,7 +9,7 @@ export const POST = async (req: Request) => {
     if (!session?.user) {
       return new Response("Unauthorized", { status: 401 });
     }
-    const body = req.json();
+    const body = await req.json();
     const { name } = SubredditValidator.parse(body);
     const subredditExists = await db.subreddit.findFirst({
       where: {
