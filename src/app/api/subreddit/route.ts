@@ -1,5 +1,5 @@
 import { getAuthSession } from "@/lib/auth";
-import { db } from "@/lib/db";
+import prisma from "@/lib/db";
 import { SubredditValidator } from "@/lib/validators/subreddit";
 import { z } from "zod";
 
@@ -11,7 +11,7 @@ export const POST = async (req: Request) => {
     }
     const body = await req.json();
     const { name } = SubredditValidator.parse(body);
-    const subredditExists = await db.subreddit.findFirst({
+    const subredditExists = await prisma.subreddit.findFirst({
       where: {
         name,
       },
@@ -19,14 +19,14 @@ export const POST = async (req: Request) => {
     if (subredditExists) {
       return new Response("Subreddit already exists", { status: 409 });
     }
-    const subreddit = await db.subreddit.create({
+    const subreddit = await prisma.subreddit.create({
       data: {
         name,
         creatorId: session.user.id,
       },
     });
 
-    await db.subscription.create({
+    await prisma.subscription.create({
       data: {
         userId: session.user.id,
         subredditId: subreddit.id,
