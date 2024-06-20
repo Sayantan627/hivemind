@@ -1,6 +1,6 @@
 import { User } from "next-auth";
 import { FC } from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Avatar, AvatarFallback } from "./ui/avatar";
 import { Icons } from "./Icons";
 import Image from "next/image";
 import { AvatarProps } from "@radix-ui/react-avatar";
