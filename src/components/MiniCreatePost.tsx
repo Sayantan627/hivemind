@@ -17,7 +17,7 @@ const MiniCreatePost: FC<MiniCreatePostProps> = ({ session }) => {
   return (
     <li className="overflow-hidden rounded-md bg-white shadow">
       <div className="sm: flex h-full justify-end gap-6 px-6 py-4">
-        <div className="relative">
+        <div className="relative h-fit">
           <UserAvatar
             user={{
               name: session?.user.name || null,

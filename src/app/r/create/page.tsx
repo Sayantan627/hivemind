@@ -39,7 +39,7 @@ const Page = () => {
           });
         }
         if (err.response?.status === 401) {
-          return loginToast();
+          return loginToast("You need to be logged in to create a community");
         }
       }
       toast({
