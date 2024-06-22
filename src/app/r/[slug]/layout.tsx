@@ -1,7 +1,9 @@
 import ToggleSubscribeLeave from "@/components/ToggleSubscribeLeave";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { getAuthSession } from "@/lib/auth";
 import prisma from "@/lib/db";
 import { format } from "date-fns";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 const Layout = async ({
@@ -90,6 +92,16 @@ const Layout = async ({
                   isSubscribed={isSubscribed}
                 />
               ) : null}
+
+              <Link
+                href={`/r/${slug}/submit`}
+                className={buttonVariants({
+                  variant: "outline",
+                  className: "mb-6 w-full",
+                })}
+              >
+                Create Post
+              </Link>
             </dl>
           </div>
         </div>
