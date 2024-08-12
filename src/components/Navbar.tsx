@@ -2,19 +2,21 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { getAuthSession } from "@/lib/auth";
 import UserAccountNav from "./UserAccountNav";
+import SearchBar from "./SearchBar";
 
 const Navbar = async () => {
   const session = await getAuthSession();
   return (
-    <div className="fixed top-0 inset-x-0 h-fit bg-zinc-100 border-b border-zinc-300 py-2 z-[10]">
-      <div className="container h-full max-w-7xl flex mx-auto justify-between items-center gap-2">
+    <div className="fixed inset-x-0 top-0 z-[10] h-fit border-b border-zinc-300 bg-zinc-100 py-2">
+      <div className="container mx-auto flex h-full max-w-7xl items-center justify-between gap-2">
         {/* logo */}
-        <Link href="/" className="flex gap-2 items-center">
+        <Link href="/" className="flex items-center gap-2">
           {/* Logo image */}
-          <p className="text-sm text-zinc-700 font-medium">HiveMind</p>
+          <p className="text-sm font-medium text-zinc-700">HiveMind</p>
         </Link>
 
         {/* Search bar */}
+        <SearchBar />
 
         {session?.user ? (
           <UserAccountNav user={session.user} />
