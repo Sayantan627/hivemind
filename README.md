@@ -6,7 +6,7 @@ Join the HiveMind community and experience the next generation of online discuss
 
 ## Features
 
-- Next.js 13: HiveMind leverages the power of Next.js 13, a highly efficient and versatile framework, to deliver fast and dynamic web pages. With its built-in server-side rendering (SSR) capabilities, Next.js ensures optimal performance and SEO-friendly content.
+- Next.js 14: HiveMind leverages the power of Next.js 14, a highly efficient and versatile framework, to deliver fast and dynamic web pages. With its built-in server-side rendering (SSR) capabilities, Next.js ensures optimal performance and SEO-friendly content.
 
 - Prisma: HiveMind integrates Prisma, a modern database toolkit, to provide a robust and scalable data layer. Prisma simplifies database operations by offering a type-safe and intuitive API, allowing you to focus on building features rather than dealing with complex SQL queries.
 
@@ -25,3 +25,4 @@ Join the HiveMind community and experience the next generation of online discuss
 - PostgreSQL
 - Shadcn
 - Redis
+- Neon DB for cloud hosting and management of the PostgreSQL database
